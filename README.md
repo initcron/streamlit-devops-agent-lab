@@ -60,7 +60,13 @@ uv pip install -r requirements.txt
 uv pip install streamlit ollama openai requests prometheus-api-client kubernetes matplotlib altair langchain uvicorn
 ```
 
-4. Start Ollama (if not already running):
+
+4. Verify Python version:
+```bash
+python --version  # Should show Python 3.11.8
+```
+
+5. Start Ollama (if not already running):
 ```bash
 # Pull and run the tinyllama model
 ollama pull tinyllama
@@ -77,39 +83,6 @@ streamlit run app.py
 
 2. Open your browser and navigate to `http://localhost:8501`
 
-## Development
-
-### Using UV for Development
-```bash
-# Install development dependencies
-uv pip install -r requirements-dev.txt
-
-# Update dependencies
-uv pip install --upgrade -r requirements.txt
-
-# Freeze dependencies
-uv pip freeze > requirements.txt
-```
-
-### Python Version Management
-This project is tested and optimized for Python 3.11.8. To ensure compatibility:
-
-1. Install Python 3.11.8 using your preferred method:
-```bash
-# Using pyenv
-pyenv install 3.11.8
-pyenv global 3.11.8
-
-# Using asdf
-asdf plugin add python
-asdf install python 3.11.8
-asdf global python 3.11.8
-```
-
-2. Verify Python version:
-```bash
-python --version  # Should show Python 3.11.8
-```
 
 ## Project Structure
 
@@ -138,4 +111,4 @@ streamlit-devops-agent-lab/
 
 ## License
 
-MIT License - see LICENSE file for details
+Apache 2.0 License - see LICENSE file for details

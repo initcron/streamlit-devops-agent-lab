@@ -1,6 +1,7 @@
 import subprocess
 from typing import Dict, List, Any
 import json
+from config import Config
 
 def check_kubernetes_connection() -> bool:
     """Check if Kubernetes cluster is accessible."""
@@ -10,7 +11,7 @@ def check_kubernetes_connection() -> bool:
     except:
         return False
 
-def get_pods(namespace: str = "default") -> List[Dict[str, Any]]:
+def get_pods(namespace: str = Config.KUBERNETES_NAMESPACE) -> List[Dict[str, Any]]:
     """Get list of pods in specified namespace."""
     try:
         result = subprocess.run(
@@ -25,7 +26,7 @@ def get_pods(namespace: str = "default") -> List[Dict[str, Any]]:
     except:
         return []
 
-def get_pod_logs(pod_name: str, namespace: str = "default", lines: int = 100) -> str:
+def get_pod_logs(pod_name: str, namespace: str = Config.KUBERNETES_NAMESPACE, lines: int = 100) -> str:
     """Get logs for a specific pod."""
     try:
         result = subprocess.run(
@@ -37,7 +38,7 @@ def get_pod_logs(pod_name: str, namespace: str = "default", lines: int = 100) ->
     except:
         return ""
 
-def get_pod_metrics(pod_name: str, namespace: str = "default") -> Dict[str, Any]:
+def get_pod_metrics(pod_name: str, namespace: str = Config.KUBERNETES_NAMESPACE) -> Dict[str, Any]:
     """Get resource metrics for a specific pod."""
     try:
         result = subprocess.run(
